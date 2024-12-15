@@ -630,7 +630,11 @@ class BuildLLVMMonoRepoBase(BuildLLVMBase, BuildLLVMInterface):
 
 
 class BuildCheriLLVM(BuildLLVMMonoRepoBase):
-    repository = GitRepository("https://github.com/CTSRD-CHERI/llvm-project.git")
+    repository = GitRepository(
+        "https://github.com/pku-truisa/llvm-project-cheri.git",
+        force_branch=True,
+        default_branch="truisa-tagptr",
+    )
     default_directory_basename = "llvm-project"
     target = "llvm"
     skip_cheri_symlinks = False
